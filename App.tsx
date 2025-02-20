@@ -35,7 +35,7 @@ export default function App() {
     case 0:
       console.log(`${n} là số chẵn`);
       break;
-    case 1: 
+    case 1:
       console.log(`${n} là số lẻ`);
       break;
     default:
@@ -61,13 +61,40 @@ export default function App() {
     default:
       console.log("Mùa đấy không tồn tại");
   }
+
+  let i;
+  let s = 0; // t = 1
+  for (i = 1; i <= 20; i++) {
+    if (i % 3 != 0 && i % 2 == 0) {
+      s = s + i; // s += i;
+    }
+  }
+  console.log(s);
+  // Tính tổng các số chẵn không chia hết cho 3 từ 1-20.
+
+  // Cho biết điểm của học sinh a là .... Hãy viết chương trình để đưa ra học sinh đấy là học sinh
+  // giỏi, học sinh khá, học sinh trung bình.
+  // Điểm từ <= 10 và > 8 là học sinh giỏi
+  // Điểm từ <= 8 và > 6 là học sinh khá
+  // Điểm từ <= 6 là học sinh trung bình
+  let score = 9;
+  if (score <= 10 && score > 8) {
+    console.log("Học sinh giỏi");
+  }
+  else if (score > 6) {
+    console.log("Học sinh khá");
+  }
+  else {
+    console.log("Học sinh trung bình");
+  }
+  
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.containerView}>
         <View style={styles.containerView1}>
           {
-            (n % 2 == 0) ? <Text style={styles.title}>{`${n} là số chẵn`}</Text> : 
-            <Text style={styles.title}>{`${n} là số chẵn`}</Text>
+            (n % 2 == 0) ? <Text style={styles.title}>{`${n} là số chẵn`}</Text> :
+              <Text style={styles.title}>{`${n} là số chẵn`}</Text>
           }
           <View style={styles.groupInput}>
             <TextInput placeholder="Enter your name?" style={styles.input} />
