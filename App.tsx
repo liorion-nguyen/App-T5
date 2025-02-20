@@ -21,53 +21,54 @@ import {
 } from "react-native";
 
 export default function App() {
-  // code javacript
-  const name = "Nguyen Van A";
-  let age = 20;
-  const isMale = true;
-  const email = "a@gmail.com";
-  // Tạo biến để lưu trữ thông tin của bản thân: tên, tuổi, giới tính, email.
+  const n = 4;
+  if (n % 2 == 0) {
+    console.log(`${n} là số chẵn`);
+  }
+  else {
+    console.log(`${n} là số lẻ`);
+  }
 
-  console.log("hello");
-  console.log(name);
-  console.log(1 + 2);
-  console.log(1 - (2 /2));
-  console.log(1 * 2);
-  console.log(1 / 2);
-  console.log(5 >= 3);
+  (n % 2 == 0) ? console.log(`${n} là số chẵn`) : console.log(`${n} là số lẻ`);
 
-  // and: &&
-  // or: ||
-  // not: !
-  console.log(true || true);
-  console.log(false || true);
-  console.log(false || false);
-  console.log(true && true);
-  console.log(true && false);
-  console.log(!true);
-  
-  console.log(Math.PI);
-  console.log(Math.max(3, 12, 6, 9));
-  console.log(Math.sqrt(16));
-  console.log(Math.pow(2, 3));
-  console.log(Math.round(Math.random() * 100)); // Math.random chỉ tạo ra từ 0 - 1
-
-  const web = "Kite";
-  const title = "Hello ," + name + "da den ";
-  const title2 = `Hello ${name} da den ${web}`;
-  console.log(title2);
-  
-  
-
-
-  
-
-
+  switch (n % 2) {
+    case 0:
+      console.log(`${n} là số chẵn`);
+      break;
+    case 1: 
+      console.log(`${n} là số lẻ`);
+      break;
+    default:
+      console.log(`${n} không phải số nguyên`);
+  }
+  // Có biến season có giá trị là: spring, summer, autumn, winter. 
+  // Sử dụng switch case để in ra mùa đấy có thời tiết như thế nào với giá trị của biến season.
+  // Mùa đấy không tồn tại.
+  let season = "dadasdsadas";
+  switch (season) {
+    case "spring":
+      console.log("Thời tiết mùa xuân là ấm áp");
+      break;
+    case "summer":
+      console.log("Thời tiết mùa hè là nóng");
+      break;
+    case "autumn":
+      console.log("Thời tiết mùa thu là mát mẻ");
+      break;
+    case "winter":
+      console.log("Thời tiết mùa đông là lạnh");
+      break;
+    default:
+      console.log("Mùa đấy không tồn tại");
+  }
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.containerView}>
         <View style={styles.containerView1}>
-          <Text style={styles.title}>Login</Text>
+          {
+            (n % 2 == 0) ? <Text style={styles.title}>{`${n} là số chẵn`}</Text> : 
+            <Text style={styles.title}>{`${n} là số chẵn`}</Text>
+          }
           <View style={styles.groupInput}>
             <TextInput placeholder="Enter your name?" style={styles.input} />
             <TextInput placeholder="Enter your name?" style={styles.input} />
