@@ -26,9 +26,17 @@ export default function App() {
     console.log("18 tuoi");
     console.log("Ha Noi");
   }
-  handleIntro();
-  handleIntro();
+  function handleSum(a: number, b: number, c: number) {
+    console.log(`Gia tri tham so a la: ${a}`);
+    console.log(`Gia tri tham so b la: ${b}`);
+    console.log(`Gia tri tham so c la: ${c}`);
+    return a + b + c;
+  }
+  const sum = handleSum(2, 5, 8);
+  
   // Tạo 1 hàm giới thiệu 1 bộ phim bất kỳ(tên, tác gỉa, thể loaị,...). Gọi đến hàm đấy để xem kết quả.
+  // Xây dựng 1 hàm tính diện tích của hình chữ nhật có nhận vào 2 tham số là cd, cr.
+  // Gọi đến hàm đó để xem kết quả.
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.containerView}>
