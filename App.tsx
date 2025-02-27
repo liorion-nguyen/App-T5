@@ -21,81 +21,18 @@ import {
 } from "react-native";
 
 export default function App() {
-  const n = 4;
-  if (n % 2 == 0) {
-    console.log(`${n} là số chẵn`);
+  function handleIntro() {
+    console.log("Nguyen Van B");
+    console.log("18 tuoi");
+    console.log("Ha Noi");
   }
-  else {
-    console.log(`${n} là số lẻ`);
-  }
-
-  (n % 2 == 0) ? console.log(`${n} là số chẵn`) : console.log(`${n} là số lẻ`);
-
-  switch (n % 2) {
-    case 0:
-      console.log(`${n} là số chẵn`);
-      break;
-    case 1:
-      console.log(`${n} là số lẻ`);
-      break;
-    default:
-      console.log(`${n} không phải số nguyên`);
-  }
-  // Có biến season có giá trị là: spring, summer, autumn, winter. 
-  // Sử dụng switch case để in ra mùa đấy có thời tiết như thế nào với giá trị của biến season.
-  // Mùa đấy không tồn tại.
-  let season = "dadasdsadas";
-  switch (season) {
-    case "spring":
-      console.log("Thời tiết mùa xuân là ấm áp");
-      break;
-    case "summer":
-      console.log("Thời tiết mùa hè là nóng");
-      break;
-    case "autumn":
-      console.log("Thời tiết mùa thu là mát mẻ");
-      break;
-    case "winter":
-      console.log("Thời tiết mùa đông là lạnh");
-      break;
-    default:
-      console.log("Mùa đấy không tồn tại");
-  }
-
-  let i;
-  let s = 0; // t = 1
-  for (i = 1; i <= 20; i++) {
-    if (i % 3 != 0 && i % 2 == 0) {
-      s = s + i; // s += i;
-    }
-  }
-  console.log(s);
-  // Tính tổng các số chẵn không chia hết cho 3 từ 1-20.
-
-  // Cho biết điểm của học sinh a là .... Hãy viết chương trình để đưa ra học sinh đấy là học sinh
-  // giỏi, học sinh khá, học sinh trung bình.
-  // Điểm từ <= 10 và > 8 là học sinh giỏi
-  // Điểm từ <= 8 và > 6 là học sinh khá
-  // Điểm từ <= 6 là học sinh trung bình
-  let score = 9;
-  if (score <= 10 && score > 8) {
-    console.log("Học sinh giỏi");
-  }
-  else if (score > 6) {
-    console.log("Học sinh khá");
-  }
-  else {
-    console.log("Học sinh trung bình");
-  }
-  
+  handleIntro();
+  handleIntro();
+  // Tạo 1 hàm giới thiệu 1 bộ phim bất kỳ(tên, tác gỉa, thể loaị,...). Gọi đến hàm đấy để xem kết quả.
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.containerView}>
         <View style={styles.containerView1}>
-          {
-            (n % 2 == 0) ? <Text style={styles.title}>{`${n} là số chẵn`}</Text> :
-              <Text style={styles.title}>{`${n} là số chẵn`}</Text>
-          }
           <View style={styles.groupInput}>
             <TextInput placeholder="Enter your name?" style={styles.input} />
             <TextInput placeholder="Enter your name?" style={styles.input} />
