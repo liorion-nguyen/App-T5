@@ -26,19 +26,42 @@ export default function App() {
     console.log("18 tuoi");
     console.log("Ha Noi");
   }
+  const handleIntro1 = () => {
+    console.log("Nguyen Van B");
+    console.log("18 tuoi");
+    console.log("Ha Noi");
+  };
+  handleIntro1();
+
+  const functionName = () => {
+
+  }
+
   function handleSum(a: number, b: number, c: number) {
     console.log(`Gia tri tham so a la: ${a}`);
     console.log(`Gia tri tham so b la: ${b}`);
     console.log(`Gia tri tham so c la: ${c}`);
     return a + b + c;
   }
+  const handleSum1 = (a: number, b: number, c: number) => {
+    console.log(`Gia tri tham so a la: ${a}`);
+    console.log(`Gia tri tham so b la: ${b}`);
+    console.log(`Gia tri tham so c la: ${c}`);
+    return a + b + c;
+  };
+  console.log(handleSum1(2, 3, 5));
+  
   const sum = handleSum(2, 5, 8);
   
   // Tạo 1 hàm giới thiệu 1 bộ phim bất kỳ(tên, tác gỉa, thể loaị,...). Gọi đến hàm đấy để xem kết quả.
   // Xây dựng 1 hàm tính diện tích của hình chữ nhật có nhận vào 2 tham số là cd, cr.
+  // Dùng arrow function để xây dựng lại 2 hàm bên trên(đặt tên hàm thêm 1). Gọi đến nó để xem kết quả.
   // Gọi đến hàm đó để xem kết quả.
   return (
     <SafeAreaView style={styles.container}>
+      {
+        (1 == 1) ? <Text>Đúng</Text> : <Text>Sai</Text>
+      }
       <ScrollView style={styles.containerView}>
         <View style={styles.containerView1}>
           <View style={styles.groupInput}>
