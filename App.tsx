@@ -12,11 +12,13 @@ import {
   SafeAreaView
 } from "react-native";
 import Login from "./src/screens/Login";
+import Home from "./src/screens/Home";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Login />
+      {/* <Login /> */}
+      <Home />
     </SafeAreaView>
   );
 }
