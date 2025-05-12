@@ -10,14 +10,26 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~52.0.24",
-    "expo-status-bar": "~2.0.0",
-    "react": "18.3.1",
-    "react-native": "0.76.5"
+    "@babel/runtime": "^7.27.1",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/bottom-tabs": "^7.3.3",
+    "@react-navigation/drawer": "^7.3.2",
+    "@react-navigation/native": "^7.0.19",
+    "@react-navigation/stack": "^7.1.2",
+    "axios": "^1.9.0",
+    "expo": "^53.0.7",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-native": "0.79.2",
+    "react-native-gesture-handler": "~2.24.0",
+    "react-native-pager-view": "^6.7.1",
+    "react-native-reanimated": "^3.17.5",
+    "react-native-safe-area-context": "^5.4.0",
+    "react-native-screens": "^4.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
-    "@types/react": "~18.3.12",
+    "@types/react": "~19.0.14",
     "prettier": "^3.4.2",
     "typescript": "^5.3.3"
   },

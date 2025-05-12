@@ -5,28 +5,15 @@ B2: Mở máy ảo lên
 B3: Mở terminal: npm start
 B4: Đợi starting xong thì nhấn phím a.
 */
-
-import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  SafeAreaView
-} from "react-native";
-import Login from "./src/screens/Login";
-import Home from "./src/screens/Home";
-
+import { NavigationContainer } from "@react-navigation/native";
+import AppTest from "./src/components/AppTest";
+import { AuthProvider } from "./src/contexts/AuthenticationContext";
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      {/* <Login /> */}
-      <Home />
-    </SafeAreaView>
+    <NavigationContainer>
+      <AuthProvider>
+        <AppTest />
+      </AuthProvider>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center", // Căn chỉnh các thành con theo trục y
-    alignItems: "center", // // Căn chỉnh các thành con theo trục x
-  }
-})

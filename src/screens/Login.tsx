@@ -1,58 +1,44 @@
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { Button, StyleSheet, Text, TextBase, TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
+import CustomInput from "../components/common/CustomInput";
+import CustomButton from "../components/common/CustomButton";
 
 export default function Login() {
-    const [count, setCount] = useState<number>(0);
-    const handleChangeCount = (value: number) => {
-        if (value == -1 && count != 0) {
-            setCount(count + value);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSubmit = () => {
+        if (!email || !password) {
+            Alert.alert("Please fill in all fields");
+            return;
         }
-        if (value == 1 && count != 10) {
-            setCount(count + value);
+        if (password.length < 6) {
+            Alert.alert("Password must be at least 6 characters");
+            return;
         }
-    }
-    const handleScore = () => {
-        if (count >= 8) {
-            return "Gioi";
-        } 
-        else if (count >= 5) {
-            return "Kha";
+        if (!email.includes("@") || !email.includes(".")) {
+            Alert.alert("Please enter a valid email");
+            return;
         }
-        else if (count >= 3) {
-            return "Trung Binh";
+
+        if (email != "admin@gmail.com" || password != "123456") {
+            Alert.alert("Invalid email or password");
+            return;
         }
-        else {
-            return "Yeu";
-        }
+        Alert.alert("Login successful");
     }
     return (
-        <View>
-            <Text>Score:</Text>
-            <Button title="-" onPress={() => {
-                handleChangeCount(-1);
-            }}/>
-            <Text>{count}</Text>
-            <TouchableOpacity onPress={() => {
-                handleChangeCount(1);
-            }} style={styles.button}>
-                <Text>+</Text>
-            </TouchableOpacity>
-
-            <Text
-                style={{
-                    color: count >= 8 ? "green" : ( count >= 5 ? "blue" : ( count >= 3 ? "orange" : "red" ) ),
-                    fontSize: 20,
-                    fontWeight: "bold"
-                }}
-            >{handleScore()}</Text>
+        <View style={styles.container}>
+            <CustomInput placeholder="Enter your email" value={email} onChangeText={setEmail} />
+            <CustomInput placeholder="Enter your password" value={password} onChangeText={setPassword} secureTextEntry={true} />
+            <CustomButton text="Login" onPress={handleSubmit} />
         </View>
     )
 }
 
-
 const styles = StyleSheet.create({
-    button: {
-        backgroundColor: "red",
-        padding: 10
-    },
+    container: {
+        flex: 1
+    }
 })
