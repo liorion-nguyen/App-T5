@@ -8,12 +8,12 @@ B4: Đợi starting xong thì nhấn phím a.
 import { NavigationContainer } from "@react-navigation/native";
 import AppTest from "./src/components/AppTest";
 import { AuthProvider } from "./src/contexts/AuthenticationContext";
+import Home from "./src/components/home/Home";
+import StackNavigator from "./src/navigation/StackNavigator";
 export default function App() {
   return (
     <NavigationContainer>
-      <AuthProvider>
-        <AppTest />
-      </AuthProvider>
+      <StackNavigator />
     </NavigationContainer>
   );
 }

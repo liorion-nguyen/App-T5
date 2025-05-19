@@ -22,17 +22,21 @@ export default function Login() {
             return;
         }
 
-        if (email != "admin@gmail.com" || password != "123456") {
-            Alert.alert("Invalid email or password");
-            return;
-        }
+        // handle Sign In
         Alert.alert("Login successful");
+    }
+
+    const navigation = useNavigation<any>();
+    const handleChangeSignUp = () => {
+        navigation.navigate("SignUp");
     }
     return (
         <View style={styles.container}>
             <CustomInput placeholder="Enter your email" value={email} onChangeText={setEmail} />
             <CustomInput placeholder="Enter your password" value={password} onChangeText={setPassword} secureTextEntry={true} />
             <CustomButton text="Login" onPress={handleSubmit} />
+            <CustomButton text="Sign Up" onPress={handleChangeSignUp} />
+            
         </View>
     )
 }
