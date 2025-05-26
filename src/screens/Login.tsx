@@ -3,12 +3,13 @@ import { useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
 import CustomInput from "../components/common/CustomInput";
 import CustomButton from "../components/common/CustomButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = () => {
+    const handleSubmit = async() => {
         if (!email || !password) {
             Alert.alert("Please fill in all fields");
             return;
@@ -21,9 +22,22 @@ export default function Login() {
             Alert.alert("Please enter a valid email");
             return;
         }
-
-        // handle Sign In
+        let users = await AsyncStorage.getItem('users') || "";
+        console.log(users);
+        
+        users = users ? JSON.parse(users) : [];
+        if (!users || users.length === 0) {
+            Alert.alert("No users found");
+            return;
+        }
+        const user = users.find((user: any) => user.email === email && user.password === password);
+        if (!user) {
+            Alert.alert("Invalid email or password");
+            return;
+        }
+        await AsyncStorage.setItem('loggedInUser', JSON.stringify(user));
         Alert.alert("Login successful");
+        navigation.navigate("Home");
     }
 
     const navigation = useNavigation<any>();
