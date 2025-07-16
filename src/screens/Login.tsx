@@ -1,9 +1,9 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
-import CustomInput from "../components/common/CustomInput";
 import CustomButton from "../components/common/CustomButton";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import CustomInput from "../components/common/CustomInput";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -37,7 +37,7 @@ export default function Login() {
         }
         await AsyncStorage.setItem('loggedInUser', JSON.stringify(user));
         Alert.alert("Login successful");
-        navigation.navigate("Home");
+        navigation.navigate("Home", {user: user});
     }
 
     const navigation = useNavigation<any>();

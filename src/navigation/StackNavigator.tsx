@@ -18,6 +18,11 @@ export default function StackNavigator() {
                 },
             }}
         >
+            <Stack.Screen name="Home" component={Home}
+                options={{
+                    title: "Trang chủ"
+                }}
+            />
             <Stack.Screen name="Login" component={Login}
                 options={{
                     title: "Đăng nhập",
@@ -28,11 +33,6 @@ export default function StackNavigator() {
                     headerTitleStyle: {
                         fontWeight: 800,
                     },
-                }}
-            />
-            <Stack.Screen name="Home" component={Home}
-                options={{
-                    title: "Trang chủ"
                 }}
             />
             <Stack.Screen name="SignUp" component={SignUp}

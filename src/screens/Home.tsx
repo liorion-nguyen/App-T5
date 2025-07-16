@@ -5,25 +5,23 @@ import { Button, StyleSheet, Text, View } from "react-native";
 
 export default function Home() {
     const navigation = useNavigation<any>();
+    const route = useRoute<any>();
+    const userParams = route.params?.user;
 
     const handleBack = async() => {
         AsyncStorage.removeItem('loggedInUser');
         navigation.navigate("Login");
     }
     const [user, setUser] = useState<any>(null);
-    useEffect(() => {
-        const getUser = async () => {
-            const user = await AsyncStorage.getItem('loggedInUser'); // String 
-            if (user) {
-                setUser(JSON.parse(user));
-            }
-        }
-        getUser();
-    }, []);
+    const [mode, setMode] = useState(false);
+    useEffect(function() {
+        console.log("Home useEffect", mode);
+    }, [mode]);
 
     return (
         <View>
             <Text>Home</Text>
+            <Button title="Click me" onPress={() => {setMode(!mode)}}/>
             <Text>{user?.email || ""}</Text>
             <Text>{user?.fullName || ""}</Text>
             <Text>{user?.password || ""}</Text>
